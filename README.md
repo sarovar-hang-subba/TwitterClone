@@ -1,2 +1,2 @@
 # TwitterClone
-A simple twitter clone suing Django.
+A simple twitter clone using Django.
