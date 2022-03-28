@@ -11,11 +11,10 @@ def index(request):
        form = PostForm(request.POST)
       #If the form is valid
        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-        
+           form.save()
+           return HttpResponseRedirect('/')
        else:
-            return HttpResponseRedirect("form.errors.as_json()")
+           return HttpResponseRedirect(form.errors.as_json())
 
     posts = Post.objects.all().order_by('-created_at') [:20]
     
@@ -24,7 +23,6 @@ def index(request):
 
 def delete(request, post_id):
     post = Post.objects.get(id = post_id)
-    
     post.delete()
     return HttpResponseRedirect('/')
  

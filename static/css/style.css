@@ -8,19 +8,40 @@ html,
 body {
   height: 100%;
 }
+
 .content {
   max-width: 600px;
   height: 100px;
   margin: 0 auto;
-  border: 1 px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3%;
+}
+.content .home-col .img-col {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+}
+
+.content .home-col .img-col img {
+  width: 17%;
 }
 /*
 ************
 *******
 */
 .post_form {
-  padding: 20px 40px;
+  margin-top: 5%;
+  padding: 20px 20px;
   border-bottom: 1px solid #ccc;
+  display: flex;
+}
+
+.post_form .logo {
+  width: 10%;
+  padding-right: 4%;
+}
+.post_form .logo img {
+  width: 100%;
 }
 .post_form input {
   width: 70%;
@@ -33,6 +54,19 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
 }
+.post_form .button {
+  background-color: dodgerblue;
+  border-radius: 25px;
+  border: none;
+  padding: 1% 2%;
+  color: #fff;
+}
+.post_form .form .display input {
+  width: 90%;
+}
+.post_form .form .display textarea {
+  width: 90%;
+}
 .posts ul {
   padding: 0%;
 }
@@ -42,24 +76,24 @@ body {
   border-bottom: 1px solid #ccc;
   padding: 12px;
 }
-.posts li .menu_icon{
+.posts li .menu_icon {
   width: 20px;
   position: absolute;
   right: 30px;
   top: 18px;
 }
-.posts li .menu{
+.posts li .menu {
   display: none;
   position: absolute;
   top: 40px;
-  right:  15px;
+  right: 15px;
   border: 2px solid #ccc;
   background-color: white;
   padding: 10px 15px;
   font-size: 13px;
   border-radius: 3px;
 }
-.posts li .menu a{
+.posts li .menu a {
   text-decoration: none;
 }
 .posts li .logo {

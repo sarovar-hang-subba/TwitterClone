@@ -2,15 +2,28 @@
 
 
 <section class="content">
+  <div class="home-col">
+    <div class="img-col"><img class="logo" src="{% static 'img/techis-logo.png' %}"/>
+      <h2>Home</h2>
+    </div>
+    <!-- <div class="text-col"><h3>Home</h3></div> -->
+  </div>  
+  <br />
+  <br />
     <section class="post_form">
-        <form action="/" method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          <input type="text" name="name" placeholder="name" required>
-          <input type="text" name="email" placeholder="email" required>
-          <textarea type="text" name="body" placeholder="Tell Us Anything" required></textarea>
-          <!-- <input type="submit" value="Tweet"> -->
-          <button type="submit">tweet</button>
-        </form>
+        <div class="logo"><img src="{% static 'img/twitter.png' %}" /></div>
+          <form class="form" action="/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="display"> 
+               <input type="text" name="name" placeholder="Your Name" required>
+               <input type="text" name="email" placeholder="Your Email" required>
+               <textarea type="text" name="body" placeholder="Tell Us Anything" required></textarea></div>
+            </div>
+            <div class="file">
+              <input type="file"> 
+              <button class="button" type="submit">Tweet</button>
+            </div>
+          </form>
     </section>
     <section class="posts">
         <ul>
@@ -22,7 +35,8 @@
                 <a href="/edit/{{ post.id }}/">edit</a>
             </div>
             <div class="logo">
-              <img src="{% static 'img/user.png' %}" />
+              <img src="{% static 'img/twitter.png' %}" />
+
             </div>
             <div class="name_body">
              <div class="name">{{ post.name }}</div>
@@ -31,7 +45,9 @@
              <p>{{ post.body }}</p><br />
              <form action="{% url 'like_post' post.pk %}" method ="posts">
                {% csrf_token %}
-               <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">{{ post.likes }}</button>
+               <a href="/like/{{post.id}}"><img src="{% static 'img/heart.png'%}" style="width:20px;"></a>
+               {{post.likes}}
+               <!-- <button type="img" name="post_id" value="{{ post.id }}" class="btn btn-primary"><img src="{% static 'img/heart.png'%}" style="width: 18px;">{{ post.likes }}</button> -->
               </form>
              <!--<a href="/delete/{{ post.id }}/">delete</a>-->
              {% if posts.image.url %}
