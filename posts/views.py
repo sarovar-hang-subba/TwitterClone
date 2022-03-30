@@ -8,13 +8,13 @@ from .forms import PostForm
 def index(request):
     #If the method is Post
     if request.method == 'POST':
-       form = PostForm(request.POST)
+       form = PostForm(request.POST,request.FILES)
       #If the form is valid
        if form.is_valid():
            form.save()
            return HttpResponseRedirect('/')
        else:
-           return HttpResponseRedirect(form.errors.as_json())
+           return HttpResponseRedirect(form.error.as_json())
 
     posts = Post.objects.all().order_by('-created_at') [:20]
     
@@ -35,14 +35,18 @@ def like_post(request,post_id):
 
 def edit(request, post_id):
     posts = Post.objects.get(id=post_id)
-    if request.method == "GET":
-        posts = Post.objects.get(id=post_id)
-        return render(request, "edit.html", {"posts": posts})
-    if request.method == "POST":
-        editposts = Post.objects.get(id=post_id)
-        form = PostForm(request.POST, request.FILES, instance=editposts)
+    #if request.method == "GET":
+        #post = Post.objects.get(id=post_id)
+        #return render(request, "edit.html", {"posts": posts})
+    if request.method == 'POST':
+        #editposts = Post.objects.get(id=post_id)
+        form = PostForm(request.POST, request.FILES, instance=posts)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect('/')
         else:
-             return HttpResponse("not valid")
+             return HttpResponseRedirect("not valid")
+
+  
+    return render(request, 'edit.html',
+                    {'posts': posts})
