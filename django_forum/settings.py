@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,8 +83,14 @@ WSGI_APPLICATION = 'django_forum.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "d2cb57uj98u3gh",
+        "USER": "jktngjrvothbbw",
+        "HOST": "ec2-54-173-77-184.compute-1.amazonaws.com",
+        "PORT": 5432,
+        "PASSWORD": "28fa6a5c3b44ea4f1d335192f459f9a08b1338c9358a91b879788e7ede3f1c3a",
     }
 }
 
@@ -142,3 +148,4 @@ cloudinary.config(
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
