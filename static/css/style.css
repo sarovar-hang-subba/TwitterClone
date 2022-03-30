@@ -6,12 +6,17 @@ Comment
 */
 html,
 body {
-  height: 100%;
+  /* margin: 2% 30%;
+  border: 1px solid; */
+}
+body {
+  margin: 0% 30%;
+  border: 1px solid #ccc !important;
+  /* height: 100% in !important; */
 }
 
 .content {
-  max-width: 600px;
-  height: 100px;
+  max-width: 100%;
   margin: 0 auto;
   border-bottom: 1px solid #ccc;
   padding-bottom: 3%;
@@ -20,6 +25,8 @@ body {
   display: flex;
   gap: 5%;
   align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3%;
 }
 
 .content .home-col .img-col img {
@@ -44,9 +51,9 @@ body {
   width: 100%;
 }
 .post_form input {
-  width: 70%;
-  margin-bottom: 10px;
-  padding: 10px;
+  width: 73%;
+  margin-bottom: 4%;
+  padding: 3%;
   border: 1px solid #ccc;
 }
 .post_form textarea {
@@ -115,4 +122,30 @@ body {
   .posts li .name_body .name {
     font-size: 20px;
   }
+}
+#button {
+  padding: 2%;
+  width: 19%;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 25px;
+}
+.post_form form .tweet {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 14% 0 0;
+  gap: 4%;
+}
+#cancel {
+  background-color: dodgerblue;
+  padding: 2% 4%;
+  border-radius: 25px;
+  color: white;
+  display: block;
+  margin: 0 0 4% 0;
+  text-decoration: none;
+}
+.post_form form img{
+  border: 1px solid #ccc;
 }
